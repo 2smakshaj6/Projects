@@ -1,11 +1,11 @@
-# 🔹 Secure Networking & Security Monitoring - Homelab Spinoff
+# 🔹 Secure Networking & Security Monitoring - Homelab 
 
 *A self-hosted, security-hardened networking project leveraging VPN, firewalls, and security monitoring tools for encrypted remote access and network protection.*
 
 ---
 
 ## 📌 Project Overview
-This project serves as a **homelab spinoff**, focusing on **secure networking, traffic monitoring, and access control** using open-source security tools. The setup includes a **Tailscale-powered VPN exit node**, firewall hardening with **iptables & UFW**, **Suricata for IDS/IPS**, **Wazuh for centralized security monitoring**, and **AdGuard Home for network-wide DNS filtering**.
+This project serves as a **homelab**, focusing on **secure networking, traffic monitoring, and access control** using open-source security tools. The setup includes a **Tailscale-powered VPN exit node**, firewall hardening with **iptables & UFW**, **Suricata for IDS/IPS**, **Wazuh for centralized security monitoring**, and **AdGuard Home for network-wide DNS filtering**.
 
 Additionally, an **old Windows laptop** has been repurposed to act as a **dedicated Wazuh SIEM server and monitoring station**.
 
@@ -89,7 +89,7 @@ Additionally, an **old Windows laptop** has been repurposed to act as a **dedica
 ---
 
 ## 🔮 Future Scope
-This **homelab spinoff project** lays the foundation for a **dedicated homelab setup** with advanced features:
+This **homelab project** lays the foundation for a **dedicated homelab setup** with advanced features:
 
 - ✔ **Transition to OPNsense/pfSense** for more granular firewall control.
 - ✔ **Deploy Wazuh as a full SIEM server** with a custom dashboard.
@@ -105,7 +105,7 @@ This **homelab spinoff project** lays the foundation for a **dedicated homelab s
 ---
 
 ## 📌 Conclusion
-This **homelab spinoff project** successfully implements **a self-hosted, security-enhanced network infrastructure** with **firewall protection, VPN tunneling, and threat monitoring**. It provides **strong network security** while maintaining **scalability for future homelab expansion**.
+This **homelab project** successfully implements **a self-hosted, security-enhanced network infrastructure** with **firewall protection, VPN tunneling, and threat monitoring**. It provides **strong network security** while maintaining **scalability for future homelab expansion**.
 
 ---
 
