@@ -1,29 +1,84 @@
-# Wireguard_VPN
+# WireGuard VPN on AWS – Secure Personal VPN Setup
 
-## 🔹 Project Type: Cybersecurity | Cloud Security | Networking
-### Tools & Technologies: AWS EC2, WireGuard, Ubuntu, Security Hardening
+This project is about setting up a **personal VPN** using **WireGuard** on an **Ubuntu EC2 instance**, giving me secure, encrypted internet access—especially on public or untrusted networks.
 
-### **Project Overview**
-Deployed a secure personal VPN using **WireGuard** on an **AWS EC2 instance** to ensure **private and encrypted** internet access.
+---
 
-### **Objectives**
-- Enhance personal privacy by encrypting internet traffic.
-- Secure internet access on untrusted networks (e.g., public Wi-Fi).
-- Implement security hardening to prevent unauthorized access.
+## Why I Built This
 
-### **Implementation Steps**
-#### **1️⃣ Provisioning AWS EC2 Instance**
-- Deployed an **Ubuntu 22.04 server** on AWS.
-- Configured **security groups** to allow inbound **UDP traffic** for WireGuard.
+I wanted a lightweight, fast, and secure way to encrypt my internet traffic—something more efficient than OpenVPN or commercial VPN apps. Setting up **WireGuard** on **AWS EC2** gave me full control over the setup, cost, and security.
 
-#### **2️⃣ Installing & Configuring WireGuard**
-- Installed WireGuard VPN on the EC2 instance.
-- Configured **client-to-server tunnels** for secure traffic routing.
+---
 
-#### **3️⃣ Network Configuration & Security Hardening**
-- Enabled **IP forwarding** and configured **iptables firewall**.
-- Implemented **fail2ban** to prevent brute-force attacks.
-- Configured **Cloudflare WARP** as an additional security layer.
+## Key Goals
 
-### **🔗 GitHub Repository**
+- Encrypt all outbound traffic to maintain privacy on public Wi-Fi  
+- Route traffic securely through a VPS under my control  
+- Harden the VPN server to prevent abuse or unauthorized access  
+- Explore real-world configuration of firewalls and system hardening  
+
+---
+
+## Tools & Technologies
+
+- **WireGuard** – Fast, modern VPN protocol  
+- **AWS EC2** – Ubuntu 22.04 VPS host  
+- **iptables** – Packet filtering and NAT  
+- **fail2ban** – SSH brute-force protection  
+- **Cloudflare WARP (optional)** – Additional routing & encryption layer  
+
+---
+
+## How I Set It Up
+
+### 1. Launched EC2 Instance
+- Spun up a lightweight Ubuntu 22.04 instance on AWS (t2.micro)
+- Configured the **security group** to allow **UDP traffic on port 51820**
+
+### 2. Installed & Configured WireGuard
+- Installed WireGuard via the official PPA
+- Generated server/client keys
+- Configured `wg0.conf` on both ends to enable tunneling
+
+### 3. Enabled IP Forwarding & NAT
+- Edited sysctl settings to enable IP forwarding
+- Used `iptables` to NAT outbound traffic through the EC2's public IP
+
+### 4. Hardened the Server
+- Installed and configured **fail2ban** to monitor SSH  
+- Locked down unused ports in UFW  
+- Disabled root login and enforced key-based SSH authentication
+
+### 5. (Optional) Layered Cloudflare WARP  
+- Tested using **Cloudflare WARP** as an upstream DNS or tunnel to further obfuscate traffic  
+- Verified DNS leak protection
+
+---
+
+## Lessons Learned
+
+- WireGuard is refreshingly simple to configure compared to legacy VPNs  
+- AWS’s security groups make it easy to restrict VPN access to your own IPs if needed  
+- IP forwarding + NAT setup can be tricky without logging enabled—debugging taught me a lot  
+- Fail2ban is a simple but effective way to reduce brute-force attempts on exposed instances  
+
+---
+
+## What’s Next
+
+- Add automatic connection for mobile devices via QR config  
+- Try deploying this setup on other cloud platforms (e.g., Oracle Cloud, DigitalOcean)  
+- Integrate with Pi-hole or AdGuard for DNS filtering  
+- Set up monitoring and alerting for the EC2 instance  
+
+---
+
+## Repo
+
 [View on GitHub](https://github.com/your-repo/personal-vpn-setup)
+
+---
+
+## Final Note
+
+This was a great weekend project to brush up on Linux networking, firewall management, and VPN configuration. If you're thinking about setting up your own VPN, I highly recommend trying WireGuard—simple, fast, and secure.
